@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login/Signup Page</title>
+    <style>
+        /* CSS code will go here */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .form-box {
+            width: 380px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+        
+        h1, h2 {
+            margin: 0;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+        
+        h2 {
+            font-size: 1.25rem;
+            color: #ff105f;
+        }
+        
+        p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .button-box {
+            width: 220px;
+            margin: 20px auto;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .toggle-btn {
+            padding: 10px 20px;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .toggle-btn:hover {
+            color: #ff105f;
+        }
+        
+        #btn {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 110px;
+            height: 2px;
+            background: #ff105f;
+            transition: left 0.3s;
+        }
+        
+        .input-group {
+            display: none;
+            flex-direction: column;
+        }
+        
+        .input-group.active {
+            display: flex;
+        }
+        
+        .input-field {
+            width: 100%;
+            padding: 10px 0;
+            margin: 10px 0;
+            border: none;
+            border-bottom: 1px solid #aaa;
+            outline: none;
+        }
+        
+        .password-field {
+            position: relative;
+            width: 100%;
+        }
+        
+        .eye {
+            position: absolute;
+            right: 10px;
+            top: 12px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #aaa;
+            transition: transform 0.2s ease;
+        }
+        
+        .eye.closed {
+            transform: rotate(180deg);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            margin: 15px 0;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+        
+        .submit-btn {
+            background: #ff105f;
+            color: #fff;
+        }
+
+        .submit-btn:hover{
+            background-color: green;
+            border: 1px solid #4285f4;
+        }
+        
+        .google-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border: 1px solid #4285f4;
+            border-radius: 10px;
+            width: 100%;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 15px;
+        
+        }
+
+        .google-btn:hover{
+           
+            background-color: #55ffa7;
+        }
+
+        .google-btn img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .google-btn span {
+            color: #4285f4;
+            font-weight: bold;
+        }
+
+        
+    </style>
+<!-- End Styling For Login Page-->
+
+ <!--recaptcha verification link start-->
+ <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+ <!--recaptcha verification link end-->
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Logo" class="logo">
+                <h1> Welcome To</h1>
+                <h2>Motor Auto Care</h2>
+                <p>Please enter your email and password to Login/Register</p>
+            </div>
+
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Login</button>
+                <button type="button" class="toggle-btn" onclick="signup()">Sign Up</button>
+            </div>
+
+            <form id="login" class="input-group">
+                <input type="email" class="input-field" placeholder="Email" id="loginEmail" required>
+                <div class="password-field">
+                    <input type="password" class="input-field" placeholder="Password" id="loginPassword" required>
+                    <span class="eye" onclick="togglePassword('loginPassword', 'loginEye')" id="loginEye">&#128065;</span>
+                </div>
+                <!-- Add reCAPTCHA widget to the login form -->
+                <div class="g-recaptcha" data-sitekey="6LcbulQqAAAAALpkG_j5PzGONDctykp-vWtBkrTC"></div>
+                <button type="submit" class="submit-btn" onclick="handleLogin(event)">Login</button>
+                <p><a href="#" onclick="forgotPassword()" style="color:blue;">Forgot Password?</a></p>
+            </form>
+
+            <form id="signup" class="input-group">
+                <input type="email" class="input-field" placeholder="Email" id="signupEmail" required>
+                <div class="password-field">
+                    <input type="password" class="input-field" placeholder="Password" id="signupPassword" required>
+                    <span class="eye" onclick="togglePassword('signupPassword', 'signupEye')" id="signupEye">&#128065;</span>
+                </div>
+                <div class="password-field">
+                    <input type="password" class="input-field" placeholder="Confirm Password" id="signupConfirmPassword" required>
+                    <span class="eye" onclick="togglePassword('signupConfirmPassword', 'signupEye2')" id="signupEye2">&#128065;</span>
+                </div>
+                <!-- Add reCAPTCHA widget to the signup form -->
+                <div class="g-recaptcha" data-sitekey="6LcbulQqAAAAALpkG_j5PzGONDctykp-vWtBkrTC"></div>
+                <button type="submit" class="submit-btn" onclick="handleSignup(event)">Sign Up</button>
+            </form>
+        <br>
+        <hr>
+        <br>
+                <button type="button" class="google-btn" onclick="loginWithGoogle()">
+                    <img src="images/icons/googleicon.svg" alt="Google Icon">
+                    Login with Google
+                </button>
+        </div>
+    </div>
+
+<!--========== Start JavaScript For Authentication ==============================-->    
+<!-- Firebase App (the core Firebase SDK) -->
+<!-- JavaScript For Authentication -->
+<script type="module">
+       //Firebase Intialisation end
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup,sendPasswordResetEmail, sendEmailVerification, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+    import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCTc0HLgncOulvfL-afqWGhGdpO-n4lmc8",
+        authDomain: "motor-auto-care.firebaseapp.com",
+        projectId: "motor-auto-care",
+        storageBucket: "motor-auto-care.appspot.com",
+        messagingSenderId: "308826053424",
+        appId: "1:308826053424:web:80cf3c7814a98f60bd06f5",
+        measurementId: "G-MLVKJ572EF"
+    };
+
+   // Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// Function to create a user document in Firestore
+async function createUserInFirestore(user, additionalData = {}) {
+  const userRef = doc(db, 'users', user.uid);
+  const docSnap = await getDoc(userRef);
+
+  // If user data does not exist, create a new user document
+  if (!docSnap.exists()) {
+    const username = additionalData.username || user.email.split("@")[0];  // Use email prefix as default username
+    await setDoc(userRef, {
+      uid: user.uid,
+      fullName: additionalData.fullName || user.displayName || "",
+      username: username,
+      email: user.email,
+      phoneNumber: additionalData.phoneNumber || "",
+      address: additionalData.address || ""
+    });
+  }
+}
+
+// Google Login Function
+async function googleLogin() {
+  const provider = new GoogleAuthProvider();
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+    await createUserInFirestore(user);  // Create user in Firestore on login
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Email/Password Sign Up
+async function emailSignUp(email, password, additionalData) {
+  try {
+    const result = await createUserWithEmailAndPassword(auth, email, password);
+    const user = result.user;
+    await createUserInFirestore(user, additionalData);  // Create user in Firestore on signup
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Exporting functions
+export { auth, googleLogin, emailSignUp };
+
+    //Firebase Intialisation end
+
+    //Login and email verification checking  fuction start
+    async function handleLogin(event) {
+        event.preventDefault();
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+
+
+        if (!email, !password) {
+        alert("Please enter your email & Password to Login.");
+        return;
+        }
+
+        try {
+            const userCredential= await signInWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            if (!user.emailVerified){
+                alert("Email is not verified. Please verify your email to continue login.")
+                console.log("Email not verified.");
+                if (confirm("Resend verification email?")){
+                    await sendEmailVerification(user);
+                    console.log("Verification email resent successfully")
+                    alert("Verification email resent successfully")
+                }
+                return;
+            }
+            alert('Login Successful!')
+            console.log('Login Successful!')
+            window.location.href = './index.html'
+        } catch (error) {
+            console.error('Login error:', error);
+            alert(error.message);
+        }
+    }
+    //Login and email verification checking fuction
+  
+
+// Forgot password function Start
+async function forgotPassword() {
+    login(); // Ensure the login form is active
+    
+    const email = document.getElementById('loginEmail').value;
+    const recaptchaResponse = grecaptcha.getResponse(); // Get reCAPTCHA response
+
+    if (!email) {
+        alert("Please enter your email to reset your password.");
+        return;
+    }
+
+    if (!recaptchaResponse) {
+        alert("Please complete the reCAPTCHA to proceed.");
+        return;
+    }
+
+    try {
+        await sendPasswordResetEmail(auth, email);
+        alert('Password Reset email sent. Check your mailbox.');
+    } catch (error) {
+        console.error('Password reset error:', error);
+        alert(error.message);
+    }
+}
+// Forgot password function end
+
+// Expose functions to the global scope
+window.forgotPassword = forgotPassword;  // <-- Add this line
+
+
+    //SugnUp and Email Verification Function Start 
+ //Sign-up and Email Verification Function Start  
+async function handleSignup(event) {
+    event.preventDefault();
+    
+    const email = document.getElementById('signupEmail').value;
+    const password = document.getElementById('signupPassword').value;
+    const confirmPassword = document.getElementById('signupConfirmPassword').value;
+    const recaptchaResponse = grecaptcha.getResponse(); // Get reCAPTCHA response
+
+    // 1. Check reCAPTCHA
+    if (!recaptchaResponse) {
+        alert("Please complete the reCAPTCHA to proceed.");
+        return;
+    }
+
+    // 2. Check password complexity
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{6,}$/; // Regex for at least 6 chars, 1 lowercase, 1 uppercase, and 1 special character
+    if (!passwordRegex.test(password)) {
+        alert("Password must be at least 6 characters long, and include lowercase, uppercase, and a special character.");
+        return;
+    }
+
+    // 3. Check if passwords match
+    if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return;
+    }
+
+    // 4. Block temporary/disposable email domains
+    const tempEmailDomains = ["tempmail.com", "10minutemail.com", "guerrillamail.com"]; // Add more known domains
+    const emailDomain = email.split('@')[1];
+
+    if (tempEmailDomains.includes(emailDomain)) {
+        alert("Temporary emails are not allowed. Please use a valid email address.");
+        return;
+    }
+
+    try {
+        // 5. Proceed with signup if CAPTCHA is verified
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        
+        // 6. Send email verification
+        await sendEmailVerification(user);
+        alert('Signup successful! Please check your mailbox for the email verification link. Click on it to verify your account.');
+        console.log("Verification email link sent.");
+        window.location.href = './loginpage.html'; // Redirect to login page after signup
+    } catch (error) {
+        console.error('Signup error:', error);
+        alert(error.message);
+    }
+}
+// Ensure the CAPTCHA is reset after submission
+function resetCaptcha() {
+    grecaptcha.reset();
+}
+//SugnUp and Email Verification Function end
+
+
+    //login with google function start
+    async function loginWithGoogle() {
+        const provider = new GoogleAuthProvider();
+
+        try {
+            const result = await signInWithPopup(auth, provider);
+            const user = result.user;
+            alert(`Welcome ${user.displayName}!`);
+            console.log('Google Login Successful!')
+            window.location.href = document.referrer || 'index.html'; // Redirect back to referrer or to index.html
+        } catch (error) {
+            console.error('Google login error:', error);
+            alert(error.message);
+        }
+    }
+    //login with google function end
+
+
+    //Toogle Show/Hide password Eyelid start
+    function togglePassword(fieldId, eyeId) {
+        const passwordField = document.getElementById(fieldId);
+        const eyeIcon = document.getElementById(eyeId);
+
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            eyeIcon.classList.add('closed');
+        } else {
+            passwordField.type = "password";
+            eyeIcon.classList.remove('closed');
+        }
+    }
+    //Toogle Show/Hide password Eyelid end
+
+
+    //Login & SignUp toogle section start
+    function login() {
+    document.getElementById("login").classList.add("active");
+    document.getElementById("signup").classList.remove("active");
+    document.getElementById("btn").style.left = "0px";
+    }
+
+
+    function signup() {
+        document.getElementById("signup").classList.add("active");
+        document.getElementById("login").classList.remove("active");
+        document.getElementById("btn").style.left = "110px";
+    }
+
+    // Expose functions to the global scope
+    window.togglePassword = togglePassword;
+    window.handleLogin = handleLogin;
+    window.handleSignup = handleSignup;
+    window.loginWithGoogle = loginWithGoogle;
+    window.login = login;
+    window.signup = signup;
+    //Login & SignUp toogle section end
+</script>
+
+
+<!--========= End JavaScript For Authentication===========================================================================-->
+
+</body>
+</html>

@@ -1,0 +1,238 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #ff0099, #493240, #42e695, #3bb2b8);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #333;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 15px;
+}
+
+header {
+    background: #003366;
+    color: #fff;
+    padding: 20px 0;
+    min-height: 70px;
+    border-bottom: #ffcc00 3px solid;
+}
+
+header h1 {
+    float: left;
+    margin: 0;
+    font-size: 24px;
+}
+
+header nav {
+    float: right;
+    margin-top: 10px;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* service.css */
+.services {
+    padding: 60px 0;
+}
+
+.services h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #003366;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: start;
+}
+
+.service-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.service-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+footer {
+    background: #003366;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer .social-icons {
+    margin-top: 10px;
+}
+
+footer .social-icons a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+footer .social-icons a:hover {
+    color: #ffcc00;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 20px;
+    }
+
+    .services h2 {
+        font-size: 1.5rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .service-item {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    header nav ul li {
+        margin-left: 10px;
+    }
+
+    .services h2 {
+        font-size: 1.2rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-item {
+        padding: 10px;
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* below item maybe not for this page just testing*/
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .main-banner {
+        height: 60vh;
+    }
+
+    .main-banner h2 {
+        font-size: 2rem;
+    }
+
+    .main-banner p {
+        font-size: 1rem;
+    }
+
+    .main-banner .btn {
+        padding: 8px 16px;
+        font-size: 1rem;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    .logo-container {
+        width: 100px;
+        height: 100px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .main-banner {
+        height: 50vh;
+    }
+
+    .main-banner h2 {
+        font-size: 1.5rem;
+    }
+
+    .main-banner p {
+        font-size: 0.8rem;
+    }
+
+    .main-banner .btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    header nav ul li {
+        margin-left: 10px;
+    }
+
+    .logo-container {
+        width: 80px;
+        height: 80px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-item, .service-item {
+        padding: 15px;
+    }
+}

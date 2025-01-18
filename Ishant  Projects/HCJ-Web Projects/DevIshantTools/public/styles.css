@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg, #2980b9, #6dd5fa, #ffffff);
+    color: #fff;
+    text-align: center;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-bottom: 2px solid #fff;
+}
+
+h1 {
+    font-size: 3em;
+    animation: rgb-border 2s infinite linear;
+}
+
+.tools-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tool-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px;
+    width: 200px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: rgb-border 2s infinite linear;
+}
+
+.tool-card:hover {
+    transform: scale(1.1);
+}
+
+button {
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #f39c12;
+}
+
+@keyframes rgb-border {
+    0% { border: 2px solid red; }
+    25% { border: 2px solid green; }
+    50% { border: 2px solid blue; }
+    75% { border: 2px solid yellow; }
+    100% { border: 2px solid red; }
+}

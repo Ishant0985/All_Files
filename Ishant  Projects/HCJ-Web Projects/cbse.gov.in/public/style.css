@@ -1,0 +1,110 @@
+:root{
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+html{
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+::after, ::before{
+    box-sizing: border-box;
+}
+
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+    padding-top: 2%;
+    }
+
+.title {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    text-align: center;
+    }
+
+.link {
+    font-size:30px;
+    font-family: Times New Roman Bold Italic;
+    color: #348f9e;
+    float: center;
+    }
+    
+.container {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    }
+    
+.btn-grad {
+    margin: 10px;
+    padding: 20px;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2); */
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: inline-block;
+    width: 272PX;
+    font-size: 20px;
+    }
+    
+.btn-grad {background-image: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%)}
+    
+.btn-grad:hover { background-position: right center; }
+ 
+
+a.hitCounter.badge-done0 {
+    background-color: #26a0da;
+    display: inline-block;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    text-decoration: none;
+    text-indent: 40px;
+    padding: 7px;
+    min-width: 90px;
+    font-size: 18px;
+    background-position: 8px 10px;
+    }
+    .customContainer{
+     max-width: 90%;
+    }
+ 

@@ -1,0 +1,103 @@
+/* Reset default browser styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Container for the video and overlay */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; /* Prevents any overflow issue */
+}
+
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the full container */
+    z-index: -1; /* Places the video behind the content */
+}
+
+.content-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    color: white;
+    z-index: 3; /* Places the content above the video */
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    overflow: hidden; /* Prevents content overflow */
+}
+
+/* Text styling */
+h1 {
+    font-size: 2em;
+    margin: 10px 0;
+    z-index: 3;
+}
+
+p {
+    font-size: 1.2em;
+    margin: 10px 0;
+    z-index: 3;
+}
+
+img {
+    width: 200px;
+    height: auto;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 3;
+}
+
+/* Responsive behavior for smaller devices */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5em; /* Smaller text for mobile */
+    }
+
+    p {
+        font-size: 1em; /* Smaller text for mobile */
+    }
+
+    img {
+        width: 150px; /* Smaller images for mobile */
+    }
+}
+
+/* Extra mobile adjustments for very small screens */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2em; /* Adjust further for smaller screens */
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+
+    img {
+        width: 120px; /* Adjust image size for very small screens */
+    }
+
+    .content-overlay {
+        padding: 10px; /* Reduce padding for small screens */
+    }
+}

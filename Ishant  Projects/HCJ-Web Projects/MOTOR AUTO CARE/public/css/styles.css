@@ -1,0 +1,591 @@
+/* variables */
+:root {
+    --clr-primary: #7380ec;
+    --clr-danger: #ff7782;
+    --clr-success: #41f1b6;
+    --clr-white: #fff;
+    --clr-info-dark: #7d8da1;
+    --clr-info-light: #dce1eb;
+    --clr-dark: #363949;
+    --clr-warnig: #ff4edc;
+    --clr-light: rgba(132, 139, 200, 0.18);
+    --clr-primary-variant: #111e88;
+    --clr-dark-variant: #677483;
+    --clr-color-background: #f6f6f9;
+  
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+  
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+    --box-shadow: 0 2rem 3rem var(--clr-light);
+  
+  }
+  
+  /* dark theme */
+  .dark-theme-variables {
+    --clr-color-background: #181a1e;
+    --clr-white: #202528;
+    --clr-light: rgba(0, 0, 0, 0.4);
+    --clr-dark: #edeffd;
+    --clr-dark-variant: #677483;
+    --box-shadow: 0 2rem 3rem var(--clr-light)
+  }
+/*******************************************************************************************/  
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #ff0099, #493240, #42e695, #3bb2b8);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #333; /* Keep text color dark for contrast */
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: #003366; /* Deep blue header for a strong, professional look */
+    color: #fff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #ffcc00 3px solid; /* Bright yellow border for contrast */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+header h1 {
+    font-size: 24px;
+    order: 2; /* For smaller devices, h1 will be centered */
+}
+
+/*************************************************************/
+/* Make sure the heading is not selectable */
+/* Prevent text selection for the logo heading */
+h1 {
+    user-select: none; /* Disable text selection */
+    cursor: pointer; /* Show pointer on hover */
+}
+
+/* Anchor style for logo */
+a.logo-link {
+    text-decoration: none; /* Remove underline from link */
+    color: inherit; /* Inherit text color */
+}
+
+/* Additional styling for hover effect (optional) */
+/* Change text color on hover */
+
+
+
+/***********************************************************/
+
+header nav {
+    order: 1;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+    color: #ffcc00; /* Yellow hover effect for links */
+}
+
+.logo-container {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    padding: 5px;
+    background: linear-gradient(45deg, red, green, blue);
+    background-size: 400% 400%;
+    animation: rgb-border-animation 5s ease infinite;
+}
+
+.animated-logo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+@keyframes rgb-border-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.main-banner {
+    background: url('../images/shop-banner2.jpg') no-repeat center center/cover;
+    color: #fff;
+    height: 400px;
+    text-align: center;
+    padding-top: 150px;
+    position: relative;
+}
+
+.main-banner h2 {
+    font-size: 36px;
+    margin: 0;
+}
+
+.main-banner p {
+    font-size: 18px;
+    margin: 10px 0 20px;
+}
+
+.main-banner .btn {
+    background: #ffcc00; /* Yellow button for visibility */
+    color: #003366; /* Dark blue text color to match the header */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.main-banner .btn:hover{
+    background-color: red;
+}
+.features, .services, .contact {
+    padding: 40px 0;
+}
+
+.features h2, .services h2, .contact h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #003366; /* Blue headings for consistency */
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    justify-content: space-around;
+    align-items: center;
+}
+
+.feature-item, .service-item {
+    background: #fff;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    flex-basis: 30%;
+    box-sizing: border-box;
+}
+
+/* Responsive adjustments for feature and service items */
+@media (max-width: 768px) {
+    .feature-item, .service-item {
+        flex-basis: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .feature-item, .service-item {
+        flex-basis: 100%;
+    }
+}
+
+footer {
+    background: #003366;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    
+}
+
+footer .social-icons {
+    margin-top: 10px;
+}
+
+footer .social-icons a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+footer .social-icons a:hover {
+    color: #ffcc00;
+}
+
+#map-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.shop-look {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.shop-look h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #003366;
+}
+
+.slider {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.slides {
+    display: flex;
+    width: calc(100% * 8); /* Adjust according to the number of images */
+    animation: slide 20s linear infinite;
+}
+
+.slide {
+    min-width: calc(12.5% - 0px); /* Square boxes with no gap */
+    margin-right: 0px;
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 54.28vh;
+    height: 54.28vh; /* Square images covering 1/7th of the viewport height */
+    object-fit: cover;
+    border: 5px solid;
+    animation: rgb-border 3s infinite;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes rgb-border {
+    0% { border-color: #ff0000; }
+    33% { border-color: #00ff00; }
+    66% { border-color: #0000ff; }
+    100% { border-color: #ff0000; }
+}
+
+/* Additional Styles for Forms */
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #003366; /* Blue color for consistency */
+}
+
+form input[type="text"], form input[type="email"], form input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-bottom: 15px; /* Adds gap after email box */
+}
+
+form textarea {
+    width: 100%;
+    height: 150px; /* Makes the query box larger */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Adjust spacing and alignment for form elements */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form h2 {
+    margin-bottom: 20px; /* Space between form title and form fields */
+    font-size: 24px;
+    color: #003366; /* Blue color for form title */
+}
+
+/* Text color adjustments for locate.html */
+#map-container h3, #map-container p {
+    color: #fff;
+}
+
+/* Responsive adjustments for contact form */
+@media (max-width: 768px) {
+    form {
+        padding: 0 20px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header h1 {
+        text-align: center;
+        letter-spacing: 0.5mm;
+        text-shadow: 3px 2px black;
+        font-size: 8mm;
+    }
+
+    header nav ul {
+        text-shadow: 1px 2px black;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    form label {
+        font-size: 14px;
+    }
+
+    form input[type="text"], form input[type="email"], form textarea {
+        font-size: 14px;
+    }
+
+    form h2 {
+        font-size: 20px;
+    }
+
+    header nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    header nav ul li {
+        display: inline;
+        margin-left: 20px;
+    }
+}    
+/* Larger devices like laptops and TVs */
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+    }
+
+    header h1 {
+        float: left;
+        margin: 0;
+        font-size: 24px;
+        text-shadow: 3px 2px black;
+    }
+
+}
+    header nav {
+        text-shadow: 2px 1px black;
+        float: right;
+        margin-top: 1%;
+}
+
+
+/* styles.css */
+/* Hamburger Icon */
+.menu-button {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    
+    z-index: 1001; /* Ensure the hamburger is above other elements */
+}
+
+.menu-button {
+    background-color: transparent; /* Makes the background transparent */
+    border: none; /* Removes any border */
+    color: white; /* Ensure the text or icon remains visible */
+    padding: 10px; /* Adjust padding if necessary */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+}
+
+.menu-button:hover {
+    width: 35px;
+    height: 30px;
+}
+
+/*********** Sidebar Styles ****************/
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -350px;
+    width: 250px;
+    height: 100%;
+    background-color: #003366; /* Matching the site theme */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.sidebar-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.sidebar h1 {
+    color: white;
+    font-size: 24px;
+}
+
+.sidebar hr {
+    border-color: #fff;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.sidebar-links {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-links li {
+    margin-bottom: 15px;
+}
+
+.sidebar-links h3 {
+    font-weight: 500;
+}
+
+.sidebar-links li a {
+    display: flex;
+    color: var(--clr-info-dark);
+    margin-left: 2rem;
+    gap: 1rem;
+    align-items: center;
+    height: 3.3rem;
+    transition: all 0.1s ease;
+    text-decoration: var(--border-radius-3); /* Removes the underline */
+}
+
+.sidebar-links li a span {
+    font-size: 1.6rem;
+    transition: all 0.3s ease-in-out;
+}
+/*
+.sidebar-links li:last-child {
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+}**/
+
+.sidebar-links li a.active {
+    background-color: var(--clr-light);
+    color: var(--clr-primary);
+    margin-left: calc(1rem - 3px);
+    border-left: 5px solid var(--clr-primary);
+}
+
+.sidebar-links li a:hover span {
+    margin-left: 1rem;
+}
+/******************************************/
+
+
+  /* Overlay for Blur Effect */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 500;
+  }
+  
+  .overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+/* Disable scrolling by setting overflow hidden */
+.no-scroll {
+    overflow: hidden;
+  }
+  
+
+  /* When sidebar is open */
+  .sidebar.active {
+    left: 0;
+  }
+  
+  /* Responsive Adjustments for Tablets and Mobile Devices */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 220px; /* Slightly narrower for tablets */
+    }
+    
+    .sidebar-links a {
+      font-size: 16px; /* Smaller text on tablets */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sidebar {
+      width: 200px; /* Narrower sidebar for mobile phones */
+    }
+  
+    .sidebar-logo {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .sidebar h1 {
+      font-size: 20px;
+    }
+  
+    .sidebar-links a {
+      font-size: 14px; /* Adjust font size for mobile */
+    }
+  
+    .menu-button {
+      font-size: 24px; /* Bigger hamburger icon on mobile */
+    }
+  }
+  

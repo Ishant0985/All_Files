@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor Auto Care - Locate Us</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/toogle-dropdown.css">
+</head>
+<body>
+  
+
+ <!--=============== Side Menu starts ====================== -->
+ <div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <img src="./images/logo.png" alt="MAC Logo" class="sidebar-logo">
+      <h1>Motor Auto care</h1>
+      <hr>
+    </div>
+    <ul class="sidebar-links">
+        <li>
+            <a href="about.html">
+                <span class="material-symbols-outlined">groups</span>
+                <h3>About Us</h3>
+            </a>
+        </li>
+        <li>
+            <a href="privacy.html">
+                <span class="material-symbols-outlined">security</span>
+                <h3>Privacy Policy</h3>
+            </a>
+        </li>
+        <li>
+            <a href="terms.html">
+                <span class="material-symbols-outlined">policy</span>
+                <h3>Terms and Conditions</h3>
+            </a>
+        </li>
+        <li>
+            <a href="cokiespolicy.html">
+                <span class="material-symbols-outlined">cookie</span>
+                <h3>Cookies Policy</h3>
+            </a>
+        </li>
+        <li>
+            <a href="faqs.html">
+                <span class="material-symbols-outlined">quiz</span>
+                <h3>FAQs</h3>
+            </a>
+        </li>
+    </ul>
+  </div>
+  <!--=====================Overlay start==============================-->
+  <div id="overlay" class="overlay"></div>
+  <!--=====================Overlay End ============================-->
+<!--==================== side menu end ========================================-->
+
+
+
+    <!-- Header Section -->
+    <header>
+                <!-- Hamburger Icon -->
+                <div class="menu-button" id="menu-button">
+                    <span class="material-symbols-outlined">menu</span>
+                </div>
+              
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <h1>Motor Auto Care</h1>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="locate.html">Locate Us</a></li>
+                </ul>
+            </nav>
+
+            <!-- Profile Section in Top Right -->
+            <div class="profile-section" id="profile-section">
+                <img id="profile-pic" src="images/icons/empty-profile.png" alt="Profile Picture" class="profile-pic" onclick="toggleDropdown()">
+                <div id="profile-dropdown" class="dropdown-content">
+                    <div class="profile-header">
+                        <img id="profile-pic" src="images/icons/empty-profile.png" alt="Profile Picture" class="dropdown-profile-pic" >
+                        <div class="profile-details">
+                            <span class="username">User Name</span>
+                            <span class="handle">@username</span>
+                        </div>
+                    </div>
+                    <div class="profile-menu">
+                        <a href="profile.html">View & Edit Profile</a>
+                        <a href="#" id="logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Login Button (Visible if not logged in) -->
+            <div class="login-section" id="login-section">
+                <a href="loginpage.html"><button>Sign In</button></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Map Section -->
+    <section id="map">
+        <div class="container">
+            <h2 style="color: #fff;">Locate Us</h2>
+            <p style="color: #fff;">Our shop is located at a very convenient spot for all your bike servicing needs.</p>
+            <p style="color: #fff;">It's easy to reach us, just follow the Google Maps directions below!</p>
+            <p style="color: #fff;">Address: Motor Auto Care Daudiyahi, Jungiganj, in front of Ramdev P.G. College, Bhadohi</p>
+            <!-- Embed Google Map with Street View -->
+            <div id="map-container">
+                <h3 style="color: #fff;">Map View</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15930.016640193326!2d82.34931771830203!3d25.311049743691868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398ffb43883aa253%3A0x2d5f6a26929fa99a!2z4KSu4KWL4KSf4KSwIOCkkeCkn-CliyDgpJXgpYfgpK_gpLA!5e1!3m2!1shi!2sin!4v1725003581500!5m2!1shi!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <h3 style="color: #fff;">Street View</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!3m2!1shi!2sin!4v1725003763573!5m2!1shi!2sin!6m8!1m7!1sWctSH4IfzO18kJ0LiV3Nmg!2m2!1d25.31091764055769!2d82.35949254054259!3f34.66513!4f0!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section (Same as Home Page) -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Motor Auto Care</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="./js/profile-toogle.js"></script>
+    <script type="module" src="js/profile-section.js"></script>
+    <script type="module" src="js/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
+    
+</body>
+</html>
+

@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-box {
+    width: 380px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+h2 {
+    font-size: 1.25rem;
+    color: #ff105f;
+}
+
+p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.button-box {
+    width: 220px;
+    margin: 20px auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.toggle-btn {
+    padding: 10px 20px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.toggle-btn:hover {
+    color: #ff105f;
+}
+
+#btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 110px;
+    height: 2px;
+    background: #ff105f;
+    transition: left 0.3s;
+}
+
+.input-group {
+    display: none;
+    flex-direction: column;
+}
+
+.input-group.active {
+    display: flex;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px 0;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 1px solid #aaa;
+    outline: none;
+}
+
+.password-field {
+    position: relative;
+    width: 100%;
+}
+
+.eye {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #aaa;
+    transition: transform 0.2s ease;
+}
+
+.eye.closed {
+    transform: rotate(180deg);
+}
+
+.submit-btn, .google-btn {
+    width: 100%;
+    padding: 10px;
+    margin: 15px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    background: #ff105f;
+    color: #fff;
+}
+
+.google-btn {
+    background: #4285F4;
+    color: #fff;
+}

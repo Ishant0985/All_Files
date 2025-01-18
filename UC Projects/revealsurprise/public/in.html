@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="main-container">
+        <!-- Countdown Section -->
+        <div id="countdown-section">
+            <h2>Get Ready for the Celebration!</h2>
+            <div id="countdown"></div>
+        </div>
+
+        <!-- Fireworks Section -->
+        <div id="fireworks-section" class="hidden">
+            <p class="happy-birthday">Happy Birthday!</p>
+            <div id="fireworks-container"></div>
+        </div>
+
+        <!-- Birthday Video Section -->
+        <div id="video-section" class="hidden">
+            <video id="birthday-video" muted>
+                <source src="video/wising-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Final Content Section -->
+        <div id="content" class="hidden">
+            <h1>Happy Birthday!</h1>
+            <p>Wishing you a life filled with happiness, success, and endless joy. May you continue to shine and achieve your dreams, just like you always have!</p>
+            <p>I am proud to have you as my elder brother, and I look up to you. Keep being awesome!</p>
+            <video id="background-video" autoplay loop muted>
+                <source src="video/celebration-background-video.mp4" type="video/mp4">
+            </video>
+            <img src="images/brother-image.jpeg" alt="Birthday Image">
+            <img src="images/greeting1.jpg" alt="Birthday Image">
+            <img src="images/greeting2.jpg" alt="Birthday Image">
+
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="birthday-music" loop>
+        <source src="music/birthday-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="firecracker-sound">
+        <source src="music/firecracker.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

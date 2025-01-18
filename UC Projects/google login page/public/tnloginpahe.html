@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login/Signup Page</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS code will go here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Logo" class="logo">
+                <h1>Welcome To</h1>
+                <h2>Topper Nexus</h2>
+                <p>Please enter your email and password to Login/Register</p>
+            </div>
+
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Login</button>
+                <button type="button" class="toggle-btn" onclick="signup()">Sign Up</button>
+            </div>
+
+            <form id="login" class="input-group">
+                <input type="email" class="input-field" placeholder="Email" required>
+                <div class="password-field">
+                    <input type="password" class="input-field" placeholder="Password" id="loginPassword" required>
+                    <span class="eye" onclick="togglePassword('loginPassword', 'loginEye')" id="loginEye">&#128065;</span>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+
+            <form id="signup" class="input-group">
+                <input type="email" class="input-field" placeholder="Email" required>
+                <div class="password-field">
+                    <input type="password" class="input-field" placeholder="Password" id="signupPassword" required>
+                    <span class="eye" onclick="togglePassword('signupPassword', 'signupEye')" id="signupEye">&#128065;</span>
+                </div>
+                <div class="password-field">
+                    <input type="password" class="input-field" placeholder="Confirm Password" id="signupConfirmPassword" required>
+                    <span class="eye" onclick="togglePassword('signupConfirmPassword', 'signupEye2')" id="signupEye2">&#128065;</span>
+                </div>
+                <button type="submit" class="submit-btn">Sign Up</button>
+            </form>
+            <button type="button" class="google-btn">Login with Google</button>
+        </div>
+    </div>
+
+    <script src="scripts.js">
+        // JavaScript code will go here
+    </script>
+    script.
+</body>
+</html>

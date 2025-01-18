@@ -1,0 +1,55 @@
+Date: 23/11/2024
+Time: 16:4
+Phone Number: +916307953956
+Message: Happy birthday my dear friend
+--------------------
+Date: 23/11/2024
+Time: 17:17
+Phone Number: +916307953956
+Message: Hello dear,Good afternoon!This message is sent using an automated Python program.
+--------------------
+Date: 23/11/2024
+Time: 17:26
+Phone Number: +916307953956
+Message: Hello dear,Good afternoon!This message is sent using an automated Python program.
+--------------------
+Date: 23/11/2024
+Time: 18:8
+Phone Number: +1234567890
+Message: Hello! This is a scheduled message.
+--------------------
+Date: 23/11/2024
+Time: 18:12
+Phone Number: +918574068200
+Message: Hello! This is a scheduled message.
+--------------------
+Date: 24/11/2024
+Time: 10:32
+Phone Number: +919450862805
+Message: Hello! This is a scheduled message.
+--------------------
+Date: 24/11/2024
+Time: 11:21
+Phone Number: +919450862805
+Message: Hello! This is a scheduled message.
+--------------------
+Date: 24/11/2024
+Time: 11:26
+Phone Number: +919450862805
+Message: Hello! This is a scheduled message.
+--------------------
+Date: 27/11/2024
+Time: 6:27
+Phone Number: +1234567890
+Message: Hello, this is a test!
+--------------------
+Date: 27/11/2024
+Time: 6:46
+Phone Number: +916307953956
+Message: Hello, How are you? How was your picnic?
+--------------------
+Date: 27/11/2024
+Time: 6:58
+Phone Number: +916307953956
+Message: Hello, How are you? How was your picnic?
+--------------------

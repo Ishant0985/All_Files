@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View/Edit Profile</title>
+    <link rel="stylesheet" href="css/privacy.css">
+    <link rel="stylesheet" href="css/toogle-dropdown.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .profile-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 50px auto; /* Center the container */
+        padding: 20px;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 2 4px 12px rgba(0, 0, 0, 0.212);
+        width: 90%;
+        max-width: 600px;
+        box-sizing: border-box; /* Ensures padding is included in the width */
+        }
+
+        .profile-container:hover {
+        margin: 45px auto; /* Center the container */
+        padding: 20px;
+        background: #fffefe;
+        border-radius: 35px;
+        box-shadow: 7 9px 17px rgba(0, 0, 0, 0.212);
+        width: 85%;
+        max-width: 595px;
+        box-sizing: border-box;
+        transition: transform 0.3s ease; /* Smooth transition for the zoom-out effect */
+        }
+
+.profile-pic:hover {
+    transform: scale(0.9); /* Scale down to 90% on hover */
+}
+
+
+        .profile-pics {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        .profile-details {
+            width: 100%;
+            margin-top: 10px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .profile-details p {
+            margin: 5px 0;
+        }
+
+        .edit-button {
+            background-color: transparent;
+            cursor: pointer;
+            font-size: 24px;
+            color: blue;
+            position: relative;
+            top: -75px;
+            left: 110px;
+            text-decoration: none;
+            outline: none;
+            border-color: transparent;
+        }
+
+        /* Edit Dialog Styles */
+        #edit-dialog {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #edit-dialog-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        #edit-dialog-content h2 {
+            margin-top: 0;
+        }
+
+        #edit-dialog-content .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        #edit-profile-form input[type="text"],
+        #edit-profile-form input[type="email"],
+        #edit-profile-form input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #edit-profile-form button {
+            padding: 10px 20px;
+            background: blue;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #edit-profile-form button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!--=============== Side Menu starts ====================== -->
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <img src="./images/logo.png" alt="MAC Logo" class="sidebar-logo">
+            <h1>Motor Auto care</h1>
+            <hr>
+        </div>
+        <ul class="sidebar-links">
+            <li>
+                <a href="about.html">
+                    <span class="material-symbols-outlined">groups</span>
+                    <h3>About Us</h3>
+                </a>
+            </li>
+            <li>
+                <a href="privacy.html">
+                    <span class="material-symbols-outlined">security</span>
+                    <h3>Privacy Policy</h3>
+                </a>
+            </li>
+            <li>
+                <a href="terms.html">
+                    <span class="material-symbols-outlined">policy</span>
+                    <h3>Terms and Conditions</h3>
+                </a>
+            </li>
+            <li>
+                <a href="cokiespolicy.html">
+                    <span class="material-symbols-outlined">cookie</span>
+                    <h3>Cookies Policy</h3>
+                </a>
+            </li>
+            <li>
+                <a href="faqs.html">
+                    <span class="material-symbols-outlined">quiz</span>
+                    <h3>FAQs</h3>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--=====================Overlay start==============================-->
+    <div id="overlay" class="overlay"></div>
+    <!--=====================Overlay End ============================-->
+    <!--==================== side menu end ========================================-->
+
+    <!-- Header Section -->
+    <header>
+        <!-- Hamburger Icon -->
+        <div class="menu-button" id="menu-button">
+            <span class="material-symbols-outlined">menu</span>
+        </div>
+
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <h1>Motor Auto Care</h1>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="locate.html">Locate Us</a></li>
+                </ul>
+            </nav>
+
+            <!-- Profile Section in Top Right -->
+            <div class="profile-section" id="profile-section">
+                <img id="profile-pic" src="images/icons/empty-profile.png" alt="Profile Picture" class="profile-pic" onclick="toggleDropdown()">
+                <div id="profile-dropdown" class="dropdown-content">
+                    <div class="profile-header">
+                        <img id="profile-pic" src="images/icons/empty-profile.png" alt="Profile Picture" class="dropdown-profile-pic">
+                        <div class="profile-details">
+                            <span class="username">User Name</span>
+                            <span class="handle">@username</span>
+                        </div>
+                    </div>
+                    <div class="profile-menu">
+                        <a href="profile.html">View & Edit Profile</a>
+                        <a href="#" id="logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Login Button (Visible if not logged in) -->
+            <div class="login-section" id="login-section">
+                <a href="loginpage.html"><button>Sign In</button></a>
+            </div>
+        </div>
+    </header>
+
+    <h2>Profile</h2>
+    <div class="profile-container">
+        <img id="profile-pic" src="images/icons/empty-profile.png" alt="Profile Picture" class="profile-pic">
+        <div class="profile-details">
+            <p>Full Name: <span id="fullname"></span></p>
+            <p>Username: <span id="username"></span></p>
+            <p>Email: <span id="email"></span></p>
+            <p>Phone: <span id="phone"></span></p>
+            <p>Address: <span id="address"></span></p>
+        </div>
+        <button id="edit-profile-btn">Edit Profile</button>
+    </div>
+
+    <div id="edit-profile-modal" class="modal">
+        <form id="edit-profile-form">
+            <label for="edit-fullname">Full Name</label>
+            <input type="text" id="edit-fullname">
+
+            <label for="edit-username">Username</label>
+            <input type="text" id="edit-username">
+
+            <label for="edit-phone">Phone Number</label>
+            <input type="text" id="edit-phone">
+
+            <label for="edit-address">Address</label>
+            <input type="text" id="edit-address">
+
+            <label for="edit-profile-pic">Profile Picture</label>
+            <input type="file" id="edit-profile-pic">
+
+            <button type="submit">Save</button>
+        </form>
+    </div>
+
+    <script type="module">
+        import { loadUserProfile, updateUserProfile, updateProfilePic } from './firebase-db.js';
+        import { auth } from './firebase.js';
+
+        // Load the user profile on page load
+        window.onload = loadUserProfile;
+
+        // Handle profile edit form submission
+        document.getElementById("edit-profile-form").onsubmit = async function(event) {
+            event.preventDefault();
+
+            const fullName = document.getElementById("edit-fullname").value;
+            const username = document.getElementById("edit-username").value;
+            const phoneNumber = document.getElementById("edit-phone").value;
+            const address = document.getElementById("edit-address").value;
+
+            await updateUserProfile({
+                displayName: fullName,
+                username: username,
+                phoneNumber: phoneNumber,
+                address: address
+            });
+
+            const profilePicFile = document.getElementById("edit-profile-pic").files[0];
+            if (profilePicFile) {
+                await updateProfilePic(profilePicFile);
+            }
+        };
+    </script>
+
+
+    <script src="js/profile-toogle.js"></script>
+    <script type="module" src="js/profile-section.js"></script>
+    <script type="module" src="js/firebase-db.js"></script>
+    <script type="module" src="js/firebase.js"></script>    
+</body>
+</html>

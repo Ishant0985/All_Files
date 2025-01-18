@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: gainsboro;
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #333; /* Keep text color dark for contrast */
+}
+
+
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: #b849fd; /* Deep blue header for a strong, professional look */
+    color: #fff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #ffcc00 3px solid; /* Bright yellow border for contrast */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+header h1 {
+    font-size: 24px;
+    margin: bottom 0 ;
+    align-items: left;/* For smaller devices, h1 will be centered */
+}
+
+header nav {
+    order: 1;
+}
+
+header nav ul {
+    margin-left: 60%;
+    margin-top: -8%;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+    align-items: end;
+}
+
+header nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+header nav ul li a:hover{
+    color: aqua;
+}

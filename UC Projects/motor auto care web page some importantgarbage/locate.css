@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #ff0099, #493240, #42e695, #3bb2b8);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #333; /* Keep text color dark for contrast */
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: #003366; /* Deep blue header for a strong, professional look */
+    color: #fff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #ffcc00 3px solid; /* Bright yellow border for contrast */
+}
+
+header h1 {
+    float: left;
+    margin: auto;
+    font-size: 24px;
+}
+
+header nav {
+    float: right;
+    margin-top: 10px;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+    color: #ffcc00; /* Yellow hover effect for links */
+}
+
+
+#map-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Text color adjustments for locate.html */
+#map-container h3, #map-container p {
+    color: #fff;
+}
+
+
+footer {
+    background: #003366;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+footer .social-icons {
+    margin-top: 10px;
+}
+
+footer .social-icons a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+footer .social-icons a:hover {
+    color: #ffcc00;
+}
+
+

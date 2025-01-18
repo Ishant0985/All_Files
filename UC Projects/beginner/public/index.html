@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Authentication</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f7f7f7;
+        }
+        .auth-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="auth-container">
+    <h2>Login</h2>
+    <input type="email" id="email" placeholder="Enter email" required>
+    <input type="password" id="password" placeholder="Enter password" required>
+    <button id="loginBtn">Login</button>
+    <p class="error" id="error-message"></p>
+</div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
+
+<script>
+    // TODO: Add your Firebase config here
+    const firebaseConfig = {
+        apiKey: "AIzaSyD0RcTIk10J1uFA9gehtPYyLtdoForpYJw",
+        authDomain: "onlyadminlogin.firebaseapp.com",
+        projectId: "onlyadminlogin",
+        storageBucket: "onlyadminlogin.appspot.com",
+        messagingSenderId: "472827711371",
+        appId: "1:472827711371:web:ba8a888dfa01cf8ca1698e"
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    const loginBtn = document.getElementById('loginBtn');
+    const errorMessage = document.getElementById('error-message');
+
+    loginBtn.addEventListener('click', () => {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        auth.signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                alert('Successfully logged in!');
+                // Redirect to another page (e.g., dashboard.html)
+                window.location.href = 'dashboard.html';
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessageText = error.message;
+                errorMessage.textContent = errorMessageText;
+            });
+    });
+
+    // Check for an already authenticated user
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            // User is authenticated, redirect to the protected page
+            window.location.href = 'dashboard.html';
+        }
+    });
+</script>
+
+</body>
+</html>

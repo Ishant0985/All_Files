@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake, Water & Gun Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 20px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+        #score {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        #rounds-container, #game-container {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Snake, Water & Gun Game</h1>
+    
+    <div id="rounds-container">
+        <p>Choose the number of rounds:</p>
+        <input type="number" id="rounds-input" min="1" max="10" value="1">
+        <button onclick="startGame()">Start Game</button>
+    </div>
+    
+    <div id="game-container">
+        <p>Choose your option:</p>
+        <button onclick="playGame('Snake')">Snake</button>
+        <button onclick="playGame('Water')">Water</button>
+        <button onclick="playGame('Gun')">Gun</button>
+    
+        <div id="result"></div>
+        <div id="score">Player: 0 | Bot: 0</div>
+    </div>
+
+    <script>
+        let playerScore = 0;
+        let botScore = 0;
+        let totalRounds = 0;
+        let roundsPlayed = 0;
+
+        // Show the round input section
+        document.getElementById("rounds-container").style.display = "block";
+
+        function startGame() {
+            totalRounds = parseInt(document.getElementById("rounds-input").value);
+            if (isNaN(totalRounds) || totalRounds < 1) {
+                alert("Please enter a valid number of rounds.");
+                return;
+            }
+            // Hide rounds input and show game buttons
+            document.getElementById("rounds-container").style.display = "none";
+            document.getElementById("game-container").style.display = "block";
+        }
+
+        function playGame(playerChoice) {
+            const choices = ["Snake", "Water", "Gun"];
+            const botChoice = choices[Math.floor(Math.random() * 3)];
+
+            let result = "";
+            if (playerChoice === botChoice) {
+                result = "It's a Tie!";
+            } else if (
+                (playerChoice === "Snake" && botChoice === "Water") ||
+                (playerChoice === "Water" && botChoice === "Gun") ||
+                (playerChoice === "Gun" && botChoice === "Snake")
+            ) {
+                result = `You chose ${playerChoice}. Bot chose ${botChoice}. You Win!`;
+                playerScore++;
+            } else {
+                result = `You chose ${playerChoice}. Bot chose ${botChoice}. Bot Wins!`;
+                botScore++;
+            }
+
+            document.getElementById("result").innerHTML = result;
+            document.getElementById("score").innerHTML = `Player: ${playerScore} | Bot: ${botScore}`;
+
+            roundsPlayed++;
+            if (roundsPlayed >= totalRounds) {
+                endGame();
+            }
+        }
+
+        function endGame() {
+            let finalMessage = "";
+            if (playerScore > botScore) {
+                finalMessage = `Congratulations! You defeated the bot with ${playerScore} wins! 🏆`;
+            } else if (playerScore < botScore) {
+                finalMessage = `You lost! The bot defeated you with ${botScore} wins.`;
+            } else {
+                finalMessage = "It's a Tie after " + totalRounds + " rounds!";
+            }
+            document.getElementById("result").innerHTML = finalMessage;
+            document.getElementById("score").style.display = "none";
+        }
+    </script>
+</body>
+</html>
